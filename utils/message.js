@@ -31,17 +31,32 @@ async function handleMessage(senderPsid, receivedMessage) {
             // });
             // responsedata.choices.text
 
-        let responsedata = 'kely sisa de ho vita .....'
-        if (responsedata) {
-            response = {
-                'text': responsedata
-            };
-        } else {
-            response = {
-                'text': receivedMessage.text
-            }
+
+        try {
+            const response = await openai.createCompletion({
+                model: "text-davinci-003",
+                prompt: receivedMessage.text,
+                temperature: 0.9,
+                max_tokens: 4000,
+                n: 1
+            });
+
+            console.log(response.data.choices[0].text)
+        } catch (e) {
+            console.log(e)
         }
 
+        let responsedata = 'kely sisa de ho vita .....'
+            // if (responsedata) {
+            //     response = {
+            //         'text': responsedata
+            //     };
+            // } else {
+            //     response = {
+            //         'text': receivedMessage.text
+            //     }
+            // }
+
     }
-    callSend.callSendAPI(senderPsid, response);
+    //callSend.callSendAPI(senderPsid, response);
 }
