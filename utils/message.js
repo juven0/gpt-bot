@@ -36,7 +36,7 @@ async function handleMessage(senderPsid, receivedMessage) {
             await
 
             function() {
-                const responseAPI = openai.createCompletion({
+                let responseAPI = openai.createCompletion({
                     model: "text-davinci-003",
                     prompt: receivedMessage.text,
                     temperature: 0.9,
@@ -45,14 +45,18 @@ async function handleMessage(senderPsid, receivedMessage) {
                 });
 
 
-                console.log(responseAPI.data.choices[0].text)
-                response = {
-                    text: responseAPI.data.choices[0].text
-                }
-                callSend.callSendAPI(senderPsid, response)
+                console.log(responseAPI)
+                    // response = {
+                    //     text: responseAPI.data.choices[0].text
+                    // }
+                    // callSend.callSendAPI(senderPsid, response)
             }()
         } catch (e) {
             console.log(e)
+            response = {
+                text: "can't send response"
+            }
+            callSend.callSendAPI(senderPsid, response)
         }
 
         let responsedata = 'kely sisa de ho vita .....'
