@@ -20,6 +20,7 @@ async function handleMessage(senderPsid, receivedMessage) {
         response = {
             'text': 'attente de resultat ...'
         }
+        callSend.callSendAPI(senderPsid, response);
         console.log("tonga")
             // const responsedata = await openai.createCompletion({
             //     model: "text-davinci-003",
@@ -40,7 +41,6 @@ async function handleMessage(senderPsid, receivedMessage) {
                 'text': receivedMessage.text
             }
         }
-
 
     }
     callSend.callSendAPI(senderPsid, response);
