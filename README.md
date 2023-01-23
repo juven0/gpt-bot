@@ -1,2 +1,3 @@
 # gpt-bot
-# gpt-bot
+
+bot messenger avec chatGPT

@@ -20,17 +20,20 @@ async function handleMessage(senderPsid, receivedMessage) {
         response = {
             'text': 'attente de resultat ...'
         }
-        const responsedata = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: receivedMessage.text,
-            temperature: 0.9,
-            max_tokens: 4000,
-            n: 1
-        });
+        console.log("tonga")
+            // const responsedata = await openai.createCompletion({
+            //     model: "text-davinci-003",
+            //     prompt: receivedMessage.text,
+            //     temperature: 0.9,
+            //     max_tokens: 4000,
+            //     n: 1
+            // });
+            // responsedata.choices.text
 
-        if (responsedata.choices.text) {
+        let responsedata = 'kely sisa de ho vita .....'
+        if (responsedata) {
             response = {
-                'text': responsedata.choices.text
+                'text': responsedata
             };
         } else {
             response = {
