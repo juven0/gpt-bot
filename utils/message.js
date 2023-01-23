@@ -42,11 +42,14 @@ async function handleMessage(senderPsid, receivedMessage) {
             });
 
 
-            console.log(responseAPI)
-                // response = {
-                //     text: responseAPI.data.choices[0].text
-                // }
-                // callSend.callSendAPI(senderPsid, response)
+            console.log(responseAPI.data.choices[0].text)
+            if (responseAPI.data.choices[0].text) {
+                response = {
+                    text: responseAPI.data.choices[0].text
+                }
+                callSend.callSendAPI(senderPsid, response)
+            }
+
 
         } catch (e) {
             console.log(e)
