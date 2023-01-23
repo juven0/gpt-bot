@@ -45,9 +45,9 @@ async function handleMessage(senderPsid, receivedMessage) {
                 });
 
 
-                console.log(response.data.choices[0].text)
+                console.log(responseAPI.data.choices[0].text)
                 response = {
-                    text: response.data.choices[0].text
+                    text: responseAPI.data.choices[0].text
                 }
                 callSend.callSendAPI(senderPsid, response)
             }()
