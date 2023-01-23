@@ -33,24 +33,21 @@ async function handleMessage(senderPsid, receivedMessage) {
 
 
         try {
-            await
-
-            function() {
-                let responseAPI = openai.createCompletion({
-                    model: "text-davinci-003",
-                    prompt: receivedMessage.text,
-                    temperature: 0.9,
-                    max_tokens: 4000,
-                    n: 1
-                });
+            const responseAPI = await openai.createCompletion({
+                model: "text-davinci-003",
+                prompt: receivedMessage.text,
+                temperature: 0.9,
+                max_tokens: 4000,
+                n: 1
+            });
 
 
-                console.log(responseAPI)
-                    // response = {
-                    //     text: responseAPI.data.choices[0].text
-                    // }
-                    // callSend.callSendAPI(senderPsid, response)
-            }()
+            console.log(responseAPI)
+                // response = {
+                //     text: responseAPI.data.choices[0].text
+                // }
+                // callSend.callSendAPI(senderPsid, response)
+
         } catch (e) {
             console.log(e)
             response = {
